@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */; };
+		CEC5C8D11C48255F00D09237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8D01C48255F00D09237 /* ViewController.swift */; };
+		CEC5C8D41C48255F00D09237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5C8D21C48255F00D09237 /* Main.storyboard */; };
+		CEC5C8D71C48255F00D09237 /* Tackanje.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */; };
+		CEC5C8D91C48255F00D09237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC5C8D81C48255F00D09237 /* Assets.xcassets */; };
+		CEC5C8DC1C48255F00D09237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5C8DA1C48255F00D09237 /* LaunchScreen.storyboard */; };
+		CEC5C8E71C48255F00D09237 /* TackanjeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8E61C48255F00D09237 /* TackanjeTests.swift */; };
+		CEC5C8F21C48255F00D09237 /* TackanjeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8F11C48255F00D09237 /* TackanjeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEC5C8E31C48255F00D09237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEC5C8C31C48255E00D09237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEC5C8CA1C48255E00D09237;
+			remoteInfo = Tackanje;
+		};
+		CEC5C8EE1C48255F00D09237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEC5C8C31C48255E00D09237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEC5C8CA1C48255E00D09237;
+			remoteInfo = Tackanje;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CEC5C8CB1C48255E00D09237 /* Tackanje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tackanje.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CEC5C8D01C48255F00D09237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEC5C8D31C48255F00D09237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEC5C8D61C48255F00D09237 /* Tackanje.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tackanje.xcdatamodel; sourceTree = "<group>"; };
+		CEC5C8D81C48255F00D09237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEC5C8DB1C48255F00D09237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CEC5C8DD1C48255F00D09237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC5C8E21C48255F00D09237 /* TackanjeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TackanjeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC5C8E61C48255F00D09237 /* TackanjeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TackanjeTests.swift; sourceTree = "<group>"; };
+		CEC5C8E81C48255F00D09237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC5C8ED1C48255F00D09237 /* TackanjeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TackanjeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC5C8F11C48255F00D09237 /* TackanjeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TackanjeUITests.swift; sourceTree = "<group>"; };
+		CEC5C8F31C48255F00D09237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEC5C8C81C48255E00D09237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC5C8DF1C48255F00D09237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC5C8EA1C48255F00D09237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEC5C8C21C48255E00D09237 = {
+			isa = PBXGroup;
+			children = (
+				CEC5C8CD1C48255E00D09237 /* Tackanje */,
+				CEC5C8E51C48255F00D09237 /* TackanjeTests */,
+				CEC5C8F01C48255F00D09237 /* TackanjeUITests */,
+				CEC5C8CC1C48255E00D09237 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEC5C8CC1C48255E00D09237 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5C8CB1C48255E00D09237 /* Tackanje.app */,
+				CEC5C8E21C48255F00D09237 /* TackanjeTests.xctest */,
+				CEC5C8ED1C48255F00D09237 /* TackanjeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEC5C8CD1C48255E00D09237 /* Tackanje */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */,
+				CEC5C8D01C48255F00D09237 /* ViewController.swift */,
+				CEC5C8D21C48255F00D09237 /* Main.storyboard */,
+				CEC5C8D81C48255F00D09237 /* Assets.xcassets */,
+				CEC5C8DA1C48255F00D09237 /* LaunchScreen.storyboard */,
+				CEC5C8DD1C48255F00D09237 /* Info.plist */,
+				CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */,
+			);
+			path = Tackanje;
+			sourceTree = "<group>";
+		};
+		CEC5C8E51C48255F00D09237 /* TackanjeTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5C8E61C48255F00D09237 /* TackanjeTests.swift */,
+				CEC5C8E81C48255F00D09237 /* Info.plist */,
+			);
+			path = TackanjeTests;
+			sourceTree = "<group>";
+		};
+		CEC5C8F01C48255F00D09237 /* TackanjeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CEC5C8F11C48255F00D09237 /* TackanjeUITests.swift */,
+				CEC5C8F31C48255F00D09237 /* Info.plist */,
+			);
+			path = TackanjeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEC5C8CA1C48255E00D09237 /* Tackanje */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEC5C8F61C48255F00D09237 /* Build configuration list for PBXNativeTarget "Tackanje" */;
+			buildPhases = (
+				CEC5C8C71C48255E00D09237 /* Sources */,
+				CEC5C8C81C48255E00D09237 /* Frameworks */,
+				CEC5C8C91C48255E00D09237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tackanje;
+			productName = Tackanje;
+			productReference = CEC5C8CB1C48255E00D09237 /* Tackanje.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CEC5C8E11C48255F00D09237 /* TackanjeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEC5C8F91C48255F00D09237 /* Build configuration list for PBXNativeTarget "TackanjeTests" */;
+			buildPhases = (
+				CEC5C8DE1C48255F00D09237 /* Sources */,
+				CEC5C8DF1C48255F00D09237 /* Frameworks */,
+				CEC5C8E01C48255F00D09237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEC5C8E41C48255F00D09237 /* PBXTargetDependency */,
+			);
+			name = TackanjeTests;
+			productName = TackanjeTests;
+			productReference = CEC5C8E21C48255F00D09237 /* TackanjeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CEC5C8EC1C48255F00D09237 /* TackanjeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEC5C8FC1C48255F00D09237 /* Build configuration list for PBXNativeTarget "TackanjeUITests" */;
+			buildPhases = (
+				CEC5C8E91C48255F00D09237 /* Sources */,
+				CEC5C8EA1C48255F00D09237 /* Frameworks */,
+				CEC5C8EB1C48255F00D09237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEC5C8EF1C48255F00D09237 /* PBXTargetDependency */,
+			);
+			name = TackanjeUITests;
+			productName = TackanjeUITests;
+			productReference = CEC5C8ED1C48255F00D09237 /* TackanjeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEC5C8C31C48255E00D09237 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Nejc Vidrih";
+				TargetAttributes = {
+					CEC5C8CA1C48255E00D09237 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					CEC5C8E11C48255F00D09237 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = CEC5C8CA1C48255E00D09237;
+					};
+					CEC5C8EC1C48255F00D09237 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = CEC5C8CA1C48255E00D09237;
+					};
+				};
+			};
+			buildConfigurationList = CEC5C8C61C48255E00D09237 /* Build configuration list for PBXProject "Tackanje" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CEC5C8C21C48255E00D09237;
+			productRefGroup = CEC5C8CC1C48255E00D09237 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEC5C8CA1C48255E00D09237 /* Tackanje */,
+				CEC5C8E11C48255F00D09237 /* TackanjeTests */,
+				CEC5C8EC1C48255F00D09237 /* TackanjeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEC5C8C91C48255E00D09237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC5C8DC1C48255F00D09237 /* LaunchScreen.storyboard in Resources */,
+				CEC5C8D91C48255F00D09237 /* Assets.xcassets in Resources */,
+				CEC5C8D41C48255F00D09237 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC5C8E01C48255F00D09237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC5C8EB1C48255F00D09237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEC5C8C71C48255E00D09237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC5C8D11C48255F00D09237 /* ViewController.swift in Sources */,
+				CEC5C8D71C48255F00D09237 /* Tackanje.xcdatamodeld in Sources */,
+				CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC5C8DE1C48255F00D09237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC5C8E71C48255F00D09237 /* TackanjeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC5C8E91C48255F00D09237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC5C8F21C48255F00D09237 /* TackanjeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEC5C8E41C48255F00D09237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEC5C8CA1C48255E00D09237 /* Tackanje */;
+			targetProxy = CEC5C8E31C48255F00D09237 /* PBXContainerItemProxy */;
+		};
+		CEC5C8EF1C48255F00D09237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEC5C8CA1C48255E00D09237 /* Tackanje */;
+			targetProxy = CEC5C8EE1C48255F00D09237 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CEC5C8D21C48255F00D09237 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEC5C8D31C48255F00D09237 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CEC5C8DA1C48255F00D09237 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEC5C8DB1C48255F00D09237 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEC5C8F41C48255F00D09237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEC5C8F51C48255F00D09237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEC5C8F71C48255F00D09237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Tackanje/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.Tackanje;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CEC5C8F81C48255F00D09237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Tackanje/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.Tackanje;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CEC5C8FA1C48255F00D09237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TackanjeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.TackanjeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tackanje.app/Tackanje";
+			};
+			name = Debug;
+		};
+		CEC5C8FB1C48255F00D09237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TackanjeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.TackanjeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tackanje.app/Tackanje";
+			};
+			name = Release;
+		};
+		CEC5C8FD1C48255F00D09237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TackanjeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.TackanjeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Tackanje;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		CEC5C8FE1C48255F00D09237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TackanjeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.TackanjeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Tackanje;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEC5C8C61C48255E00D09237 /* Build configuration list for PBXProject "Tackanje" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC5C8F41C48255F00D09237 /* Debug */,
+				CEC5C8F51C48255F00D09237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEC5C8F61C48255F00D09237 /* Build configuration list for PBXNativeTarget "Tackanje" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC5C8F71C48255F00D09237 /* Debug */,
+				CEC5C8F81C48255F00D09237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CEC5C8F91C48255F00D09237 /* Build configuration list for PBXNativeTarget "TackanjeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC5C8FA1C48255F00D09237 /* Debug */,
+				CEC5C8FB1C48255F00D09237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CEC5C8FC1C48255F00D09237 /* Build configuration list for PBXNativeTarget "TackanjeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC5C8FD1C48255F00D09237 /* Debug */,
+				CEC5C8FE1C48255F00D09237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEC5C8D61C48255F00D09237 /* Tackanje.xcdatamodel */,
+			);
+			currentVersion = CEC5C8D61C48255F00D09237 /* Tackanje.xcdatamodel */;
+			path = Tackanje.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CEC5C8C31C48255E00D09237 /* Project object */;
+}
