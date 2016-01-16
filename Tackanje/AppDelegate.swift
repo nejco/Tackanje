@@ -17,6 +17,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        
+//        let glavni: GlavniTabBarController = mainStoryboard.instantiateViewControllerWithIdentifier("glavni") as! GlavniTabBarController
+//        
+//        let login: LoginViewController = mainStoryboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+//        
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//
+//        if defaults.stringForKey("ime")?.isEmpty == true ||
+//            defaults.stringForKey("priimek")?.isEmpty == true ||
+//            defaults.stringForKey("email")?.isEmpty == true {
+//                
+//            self.window?.rootViewController = login
+//
+//        } else {
+//            self.window?.rootViewController = glavni
+//
+//        }
+//        
+//        self.window?.rootViewController = glavni
+//        
+//        self.window?.makeKeyAndVisible()
+//        
         return true
     }
 

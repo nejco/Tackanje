@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6618F7F6DEBCFE1DB3209271 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74973EC75D91C6F6534F56A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CEAF42B71C491FC700E7B0F7 /* DrugiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */; };
+		CEAF42B91C49228000E7B0F7 /* GlavniTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42B81C49228000E7B0F7 /* GlavniTabBarController.swift */; };
+		CEAF42BB1C49256C00E7B0F7 /* PrijavaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42BA1C49256C00E7B0F7 /* PrijavaViewController.swift */; };
+		CEAF42BD1C4990DD00E7B0F7 /* GostovanjeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42BC1C4990DD00E7B0F7 /* GostovanjeViewController.swift */; };
+		CEAF42BF1C49911700E7B0F7 /* GostovanjeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42BE1C49911700E7B0F7 /* GostovanjeTableController.swift */; };
+		CEAF42C11C49919900E7B0F7 /* GostovanjeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */; };
+		CEAF42C31C4A479400E7B0F7 /* GostovanjeQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */; };
 		CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */; };
-		CEC5C8D11C48255F00D09237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8D01C48255F00D09237 /* ViewController.swift */; };
+		CEC5C8D11C48255F00D09237 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8D01C48255F00D09237 /* LoginViewController.swift */; };
 		CEC5C8D41C48255F00D09237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5C8D21C48255F00D09237 /* Main.storyboard */; };
 		CEC5C8D71C48255F00D09237 /* Tackanje.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */; };
 		CEC5C8D91C48255F00D09237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC5C8D81C48255F00D09237 /* Assets.xcassets */; };
@@ -37,9 +44,17 @@
 
 /* Begin PBXFileReference section */
 		C1A8BCD561851CAFAB02A2DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CEAF42B31C49116100E7B0F7 /* Tackanje.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Tackanje.entitlements; sourceTree = "<group>"; };
+		CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugiViewController.swift; sourceTree = "<group>"; };
+		CEAF42B81C49228000E7B0F7 /* GlavniTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlavniTabBarController.swift; sourceTree = "<group>"; };
+		CEAF42BA1C49256C00E7B0F7 /* PrijavaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrijavaViewController.swift; sourceTree = "<group>"; };
+		CEAF42BC1C4990DD00E7B0F7 /* GostovanjeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeViewController.swift; sourceTree = "<group>"; };
+		CEAF42BE1C49911700E7B0F7 /* GostovanjeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeTableController.swift; sourceTree = "<group>"; };
+		CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeTableViewCell.swift; sourceTree = "<group>"; };
+		CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeQRViewController.swift; sourceTree = "<group>"; };
 		CEC5C8CB1C48255E00D09237 /* Tackanje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tackanje.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEC5C8D01C48255F00D09237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEC5C8D01C48255F00D09237 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEC5C8D31C48255F00D09237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEC5C8D61C48255F00D09237 /* Tackanje.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tackanje.xcdatamodel; sourceTree = "<group>"; };
 		CEC5C8D81C48255F00D09237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,13 +138,21 @@
 		CEC5C8CD1C48255E00D09237 /* Tackanje */ = {
 			isa = PBXGroup;
 			children = (
+				CEAF42B31C49116100E7B0F7 /* Tackanje.entitlements */,
 				CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */,
-				CEC5C8D01C48255F00D09237 /* ViewController.swift */,
+				CEAF42BA1C49256C00E7B0F7 /* PrijavaViewController.swift */,
+				CEAF42BC1C4990DD00E7B0F7 /* GostovanjeViewController.swift */,
+				CEC5C8D01C48255F00D09237 /* LoginViewController.swift */,
 				CEC5C8D21C48255F00D09237 /* Main.storyboard */,
+				CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */,
+				CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */,
+				CEAF42BE1C49911700E7B0F7 /* GostovanjeTableController.swift */,
+				CEAF42B81C49228000E7B0F7 /* GlavniTabBarController.swift */,
 				CEC5C8D81C48255F00D09237 /* Assets.xcassets */,
 				CEC5C8DA1C48255F00D09237 /* LaunchScreen.storyboard */,
 				CEC5C8DD1C48255F00D09237 /* Info.plist */,
 				CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */,
+				CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */,
 			);
 			path = Tackanje;
 			sourceTree = "<group>";
@@ -223,6 +246,12 @@
 				TargetAttributes = {
 					CEC5C8CA1C48255E00D09237 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = U548NFKUDD;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					CEC5C8E11C48255F00D09237 = {
 						CreatedOnToolsVersion = 7.2;
@@ -334,8 +363,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEC5C8D11C48255F00D09237 /* ViewController.swift in Sources */,
+				CEAF42BB1C49256C00E7B0F7 /* PrijavaViewController.swift in Sources */,
+				CEAF42BD1C4990DD00E7B0F7 /* GostovanjeViewController.swift in Sources */,
+				CEC5C8D11C48255F00D09237 /* LoginViewController.swift in Sources */,
 				CEC5C8D71C48255F00D09237 /* Tackanje.xcdatamodeld in Sources */,
+				CEAF42B91C49228000E7B0F7 /* GlavniTabBarController.swift in Sources */,
+				CEAF42C11C49919900E7B0F7 /* GostovanjeTableViewCell.swift in Sources */,
+				CEAF42BF1C49911700E7B0F7 /* GostovanjeTableController.swift in Sources */,
+				CEAF42B71C491FC700E7B0F7 /* DrugiViewController.swift in Sources */,
+				CEAF42C31C4A479400E7B0F7 /* GostovanjeQRViewController.swift in Sources */,
 				CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,10 +515,14 @@
 			baseConfigurationReference = C1A8BCD561851CAFAB02A2DD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tackanje/Tackanje.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tackanje/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.Tackanje;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -491,10 +531,14 @@
 			baseConfigurationReference = E4025E3DCA54AAA17A63D7F3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tackanje/Tackanje.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tackanje/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.Tackanje;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

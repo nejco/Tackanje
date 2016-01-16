@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -125,7 +126,7 @@
         <!--Prijava na sejo-->
         <scene sceneID="kKg-71-MYc">
             <objects>
-                <viewController id="jmS-sc-fkW" sceneMemberID="viewController">
+                <viewController id="jmS-sc-fkW" customClass="PrijavaViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wPa-Kw-bxU"/>
                         <viewControllerLayoutGuide type="bottom" id="H1F-Sj-s55"/>
@@ -133,17 +134,9 @@
                     <view key="view" contentMode="scaleToFill" id="R7Z-ir-wer">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Item 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c62-Fm-6dL">
-                                <rect key="frame" x="153" y="207" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Prijava na sejo" id="M4t-Hj-IeT"/>
+                    <tabBarItem key="tabBarItem" title="Prijava na sejo" image="QR Code-100" id="M4t-Hj-IeT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJg-dn-Fkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,7 +145,7 @@
         <!--Login View Controller-->
         <scene sceneID="UXz-jP-AOA">
             <objects>
-                <viewController id="WT7-X6-o0d" customClass="LoginViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="WT7-X6-o0d" customClass="LoginViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rad-D1-QkD"/>
                         <viewControllerLayoutGuide type="bottom" id="gJh-No-mxP"/>
@@ -161,32 +154,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwp-m8-NsZ">
-                                <rect key="frame" x="183" y="160" width="320" height="150"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-zh-7bD">
-                                <rect key="frame" x="205" y="268" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3O-dF-cKU">
+                                <rect key="frame" x="180" y="285" width="240" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="5at-PT-BiA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ime" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yfr-hY-X8W">
+                                <rect key="frame" x="180" y="175" width="240" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Priimek" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HLQ-uh-Pej">
+                                <rect key="frame" x="180" y="228" width="240" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-zh-7bD">
+                                <rect key="frame" x="281" y="323" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="login:" destination="WT7-X6-o0d" eventType="touchUpInside" id="t4H-we-M5K"/>
-                                    <segue destination="9Ca-KH-KJR" kind="presentation" id="RZb-34-IHU"/>
+                                    <segue destination="9Ca-KH-KJR" kind="presentation" identifier="login" id="RZb-34-IHU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U3O-dF-cKU" firstAttribute="centerY" secondItem="cUn-PV-2jV" secondAttribute="centerY" id="8iI-q1-K5Y"/>
+                            <constraint firstItem="HLQ-uh-Pej" firstAttribute="top" secondItem="yfr-hY-X8W" secondAttribute="bottom" constant="23" id="98R-Pk-Elw"/>
+                            <constraint firstItem="U3O-dF-cKU" firstAttribute="centerX" secondItem="cUn-PV-2jV" secondAttribute="centerX" id="Aft-Xt-Ey8"/>
+                            <constraint firstItem="HLQ-uh-Pej" firstAttribute="width" secondItem="U3O-dF-cKU" secondAttribute="width" id="BZm-bg-wkh"/>
+                            <constraint firstItem="gC3-zh-7bD" firstAttribute="centerX" secondItem="U3O-dF-cKU" secondAttribute="centerX" id="Gng-Db-Dtn"/>
+                            <constraint firstItem="yfr-hY-X8W" firstAttribute="centerX" secondItem="cUn-PV-2jV" secondAttribute="centerX" id="JfC-vR-kw9"/>
+                            <constraint firstItem="gC3-zh-7bD" firstAttribute="top" secondItem="U3O-dF-cKU" secondAttribute="bottom" constant="8" id="JnJ-tc-1Cr"/>
+                            <constraint firstItem="yfr-hY-X8W" firstAttribute="leading" secondItem="HLQ-uh-Pej" secondAttribute="leading" id="aL9-2T-mrV"/>
+                            <constraint firstItem="yfr-hY-X8W" firstAttribute="width" secondItem="U3O-dF-cKU" secondAttribute="width" id="e8X-Vc-xda"/>
+                            <constraint firstItem="U3O-dF-cKU" firstAttribute="top" secondItem="HLQ-uh-Pej" secondAttribute="bottom" constant="27" id="lge-6J-QLp"/>
+                            <constraint firstItem="HLQ-uh-Pej" firstAttribute="leading" secondItem="U3O-dF-cKU" secondAttribute="leading" id="yL1-tv-RiM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JfC-vR-kw9"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="U3O-dF-cKU" id="pow-2V-CxA"/>
+                        <outlet property="ime" destination="yfr-hY-X8W" id="GG6-5y-xrX"/>
+                        <outlet property="priimek" destination="HLQ-uh-Pej" id="TbI-Vf-P8W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUX-Gs-QmI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1086" y="-1"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Drugi View Controller-->
+        <scene sceneID="xzN-BB-7vh">
+            <objects>
+                <viewController storyboardIdentifier="drugi" id="LwC-AV-l7U" customClass="DrugiViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jBL-yv-PQU"/>
+                        <viewControllerLayoutGuide type="bottom" id="LVq-Yd-g21"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b96-3S-fL1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMU-hq-CEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1086" y="800"/>
+        </scene>
+        <!--Glavni Tab Bar Controller-->
         <scene sceneID="dLj-nW-u6n">
             <objects>
-                <tabBarController id="9Ca-KH-KJR" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="glavni" id="9Ca-KH-KJR" customClass="GlavniTabBarController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="kxy-1k-ppz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -202,10 +248,10 @@
             </objects>
             <point key="canvasLocation" x="-338" y="-1"/>
         </scene>
-        <!--View Controller-->
+        <!--Gostovanje View Controller-->
         <scene sceneID="n8Y-re-ViL">
             <objects>
-                <viewController id="7Zq-IW-vg8" sceneMemberID="viewController">
+                <viewController id="7Zq-IW-vg8" customClass="GostovanjeViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cQq-SC-L06"/>
                         <viewControllerLayoutGuide type="bottom" id="iiR-Ty-rkR"/>
@@ -218,18 +264,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tUe-LD-bSQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gostovanjeCell" id="tUe-LD-bSQ" customClass="GostovanjeTableViewCell" customModule="Tackanje" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tUe-LD-bSQ" id="NvW-mc-SgB">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zhc-hD-Yg8">
+                                                    <rect key="frame" x="14" y="11" width="322" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="322" id="f0z-tu-1jp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zhc-hD-Yg8" firstAttribute="leading" secondItem="NvW-mc-SgB" secondAttribute="leadingMargin" constant="6" id="CRC-Pn-oN6"/>
+                                                <constraint firstItem="zhc-hD-Yg8" firstAttribute="top" secondItem="NvW-mc-SgB" secondAttribute="topMargin" constant="3" id="crV-K4-KpL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zhc-hD-Yg8" secondAttribute="bottom" constant="3" id="oRU-2c-INI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="title" destination="zhc-hD-Yg8" id="bgO-GQ-xru"/>
                                             <segue destination="oAc-Sg-t8l" kind="presentation" id="UGt-46-9P1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7Zq-IW-vg8" id="MBB-0D-WzD"/>
+                                    <outlet property="delegate" destination="7Zq-IW-vg8" id="9KI-9Y-jYq"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,15 +308,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Uh-yg-EXR"/>
+                    <connections>
+                        <outlet property="tableView" destination="3Wf-0W-h14" id="bt6-1B-1Sv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3F-7a-wz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1277" y="1566"/>
         </scene>
-        <!--View Controller-->
+        <!--Gostovanje View Controller-->
         <scene sceneID="iaN-JA-Yag">
             <objects>
-                <viewController id="E0h-5U-9bV" sceneMemberID="viewController">
+                <viewController id="E0h-5U-9bV" customClass="GostovanjeViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jPG-fZ-gMn"/>
                         <viewControllerLayoutGuide type="bottom" id="r3M-4O-9Wl"/>
@@ -283,7 +353,7 @@
         <scene sceneID="1OU-p3-1jM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PsC-XF-1N7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Predmeti" id="1L1-B7-Vkt"/>
+                    <tabBarItem key="tabBarItem" title="Predmeti" image="Generic Book File Type Filled-50" id="1L1-B7-Vkt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NM5-cW-Xd7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -302,7 +372,7 @@
         <scene sceneID="nKF-Jn-m71">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SoQ-O9-HZG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gostuj sejo" id="Mzn-AU-wTJ"/>
+                    <tabBarItem key="tabBarItem" title="Gostuj sejo" image="Virtual Machine Filled-50" id="Mzn-AU-wTJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pwy-sD-vks">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -336,7 +406,12 @@
             <point key="canvasLocation" x="1953" y="1566"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Generic Book File Type Filled-50" width="25" height="25"/>
+        <image name="QR Code-100" width="25" height="25"/>
+        <image name="Virtual Machine Filled-50" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RZb-34-IHU"/>
+        <segue reference="7fg-Gy-ruq"/>
     </inferredMetricsTieBreakers>
 </document>

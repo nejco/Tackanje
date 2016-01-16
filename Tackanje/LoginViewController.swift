@@ -8,42 +8,37 @@
 
 import UIKit
 import OAuthSwift
+import CloudKit
 
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var ime: UITextField!
+    @IBOutlet weak var priimek: UITextField!
+    @IBOutlet weak var email: UITextField!
     
     @IBAction func login(sender: UIButton) {
-        let oauthswift = OAuth2Swift(
-            consumerKey:    "********",
-            consumerSecret: "********",
-            authorizeUrl:   "https://api.instagram.com/oauth/authorize",
-            responseType:   "token"
-        )
-        oauthswift.authorizeWithCallbackURL(
-            NSURL(string: "oauth-swift://oauth-callback/instagram")!,
-            scope: "likes+comments", state:"INSTAGRAM",
-            success: { credential, response, parameters in
-                print(credential.oauth_token)
-            },
-            failure: { error in
-                print(error.localizedDescription)
-            }
-        )
+       let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.setValue(ime.text, forKey: "ime")
+        defaults.setValue(priimek.text, forKey: "priimek")
+        defaults.setValue(email.text, forKey: "email")
+    
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.performSegueWithIdentifier("login", sender: self)
         
         
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
     
