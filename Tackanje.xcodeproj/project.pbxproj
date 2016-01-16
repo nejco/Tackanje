@@ -15,6 +15,8 @@
 		CEAF42BF1C49911700E7B0F7 /* GostovanjeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42BE1C49911700E7B0F7 /* GostovanjeTableController.swift */; };
 		CEAF42C11C49919900E7B0F7 /* GostovanjeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */; };
 		CEAF42C31C4A479400E7B0F7 /* GostovanjeQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */; };
+		CEAF42C51C4A524500E7B0F7 /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C41C4A524500E7B0F7 /* Static.swift */; };
+		CEAF42C71C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C61C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift */; };
 		CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */; };
 		CEC5C8D11C48255F00D09237 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8D01C48255F00D09237 /* LoginViewController.swift */; };
 		CEC5C8D41C48255F00D09237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5C8D21C48255F00D09237 /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		CEAF42BE1C49911700E7B0F7 /* GostovanjeTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeTableController.swift; sourceTree = "<group>"; };
 		CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeTableViewCell.swift; sourceTree = "<group>"; };
 		CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeQRViewController.swift; sourceTree = "<group>"; };
+		CEAF42C41C4A524500E7B0F7 /* Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
+		CEAF42C61C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostujSejoTableViewColler.swift; sourceTree = "<group>"; };
 		CEC5C8CB1C48255E00D09237 /* Tackanje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tackanje.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC5C8D01C48255F00D09237 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				CEAF42BC1C4990DD00E7B0F7 /* GostovanjeViewController.swift */,
 				CEC5C8D01C48255F00D09237 /* LoginViewController.swift */,
 				CEC5C8D21C48255F00D09237 /* Main.storyboard */,
+				CEAF42C61C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift */,
 				CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */,
 				CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */,
 				CEAF42BE1C49911700E7B0F7 /* GostovanjeTableController.swift */,
@@ -153,6 +158,7 @@
 				CEC5C8DD1C48255F00D09237 /* Info.plist */,
 				CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */,
 				CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */,
+				CEAF42C41C4A524500E7B0F7 /* Static.swift */,
 			);
 			path = Tackanje;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 			files = (
 				CEAF42BB1C49256C00E7B0F7 /* PrijavaViewController.swift in Sources */,
 				CEAF42BD1C4990DD00E7B0F7 /* GostovanjeViewController.swift in Sources */,
+				CEAF42C51C4A524500E7B0F7 /* Static.swift in Sources */,
 				CEC5C8D11C48255F00D09237 /* LoginViewController.swift in Sources */,
 				CEC5C8D71C48255F00D09237 /* Tackanje.xcdatamodeld in Sources */,
 				CEAF42B91C49228000E7B0F7 /* GlavniTabBarController.swift in Sources */,
@@ -373,6 +380,7 @@
 				CEAF42B71C491FC700E7B0F7 /* DrugiViewController.swift in Sources */,
 				CEAF42C31C4A479400E7B0F7 /* GostovanjeQRViewController.swift in Sources */,
 				CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */,
+				CEAF42C71C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
