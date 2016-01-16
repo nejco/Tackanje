@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -278,7 +277,7 @@
                                                         <constraint firstAttribute="width" constant="322" id="f0z-tu-1jp"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -351,6 +350,7 @@
         <!--GostovanjeQR View Controller-->
         <scene sceneID="iaN-JA-Yag">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZI-2r-sGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="E0h-5U-9bV" customClass="GostovanjeQRViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jPG-fZ-gMn"/>
@@ -359,59 +359,7 @@
                     <view key="view" contentMode="scaleToFill" id="Lkr-jd-76G">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naprava je zaklenjena, obiskovalci se lahko prijavijo na predmet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaK-cs-co7">
-                                <rect key="frame" x="20" y="72" width="560" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="dLO-Fi-gsz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohR-Is-uVs">
-                                <rect key="frame" x="20" y="101" width="560" height="479"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ohR-Is-uVs" secondAttribute="height" multiplier="1:1" id="2fD-Ha-gcE"/>
-                                    <constraint firstAttribute="width" secondItem="ohR-Is-uVs" secondAttribute="height" multiplier="280:243" id="9rh-Vl-qZv"/>
-                                    <constraint firstAttribute="width" secondItem="ohR-Is-uVs" secondAttribute="height" multiplier="1:1" id="Uid-Af-w5i"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2fD-Ha-gcE"/>
-                                        <exclude reference="9rh-Vl-qZv"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ohR-Is-uVs" firstAttribute="leading" secondItem="xaK-cs-co7" secondAttribute="leading" id="39S-eL-tcB"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="ohR-Is-uVs" secondAttribute="leading" id="6lk-8X-BKr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ohR-Is-uVs" secondAttribute="trailing" id="AXV-gt-CwZ"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="ohR-Is-uVs" secondAttribute="leading" id="JVf-KP-NEJ"/>
-                            <constraint firstItem="ohR-Is-uVs" firstAttribute="top" secondItem="xaK-cs-co7" secondAttribute="bottom" constant="8" id="Jbf-FR-Ygl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ohR-Is-uVs" secondAttribute="trailing" id="Yss-M2-rsC"/>
-                            <constraint firstItem="r3M-4O-9Wl" firstAttribute="top" secondItem="ohR-Is-uVs" secondAttribute="bottom" constant="13" id="ceH-El-ehD"/>
-                            <constraint firstItem="r3M-4O-9Wl" firstAttribute="top" secondItem="ohR-Is-uVs" secondAttribute="bottom" constant="13" id="cz9-Ep-SgD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xaK-cs-co7" secondAttribute="trailing" id="ebq-J5-vFl"/>
-                            <constraint firstItem="xaK-cs-co7" firstAttribute="top" secondItem="jPG-fZ-gMn" secondAttribute="bottom" constant="8" id="f65-7v-pcc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ohR-Is-uVs" secondAttribute="trailing" id="ifN-Wk-0J2"/>
-                            <constraint firstItem="r3M-4O-9Wl" firstAttribute="top" secondItem="ohR-Is-uVs" secondAttribute="bottom" constant="20" id="kxh-Ds-kV3"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="xaK-cs-co7" secondAttribute="leading" id="qld-FP-LJb"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="ohR-Is-uVs" secondAttribute="leading" id="rBf-Yv-V05"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="6lk-8X-BKr"/>
-                                <exclude reference="AXV-gt-CwZ"/>
-                                <exclude reference="JVf-KP-NEJ"/>
-                                <exclude reference="Jbf-FR-Ygl"/>
-                                <exclude reference="Yss-M2-rsC"/>
-                                <exclude reference="ceH-El-ehD"/>
-                                <exclude reference="cz9-Ep-SgD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="trq-Wu-WXO">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="BzS-qs-45F">
@@ -420,11 +368,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="qr" destination="ohR-Is-uVs" id="yNy-9B-5df"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZI-2r-sGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3583" y="1566"/>
         </scene>

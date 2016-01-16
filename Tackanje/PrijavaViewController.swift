@@ -21,13 +21,15 @@ class PrijavaViewController: RSCodeReaderViewController {
         print(defauls.stringForKey("priimek")!)
         print(defauls.stringForKey("email")!)
         
+        let ime = defauls.stringForKey("ime")!
+        let priimek = defauls.stringForKey("priimek")!
+        let email = defauls.stringForKey("email")!
         
+//        alert("\(ime),\(priimek),\(email)")
         //generiraj QR kodo
-        var image = RSUnifiedCodeGenerator.shared.generateCode("1234567890", machineReadableCodeObjectType:AVMetadataObjectTypeQRCode)
+        var image = RSUnifiedCodeGenerator.shared.generateCode("\(ime),\(priimek),\(email)", machineReadableCodeObjectType:AVMetadataObjectTypeQRCode)
         
-        image = RSAbstractCodeGenerator.resizeImage(image!, scale: 20)
-        
-        
+        image = RSAbstractCodeGenerator.resizeImage(image!, scale: 25)
         
         
 
@@ -39,19 +41,18 @@ class PrijavaViewController: RSCodeReaderViewController {
         
 
         let label = UILabel()
-        label.text = "LOREN"
         let sublayer = label.layer;
         
         // .. the rest of your layer initialization
-//        sublayer.backgroundColor = UIColor.whiteColor().CGColor
-//        sublayer.shadowOffset = CGSizeMake(0, 3);
-//        sublayer.shadowRadius = 5.0;
-//        sublayer.shadowColor = UIColor.blackColor().CGColor
-//        sublayer.shadowOpacity = 0.8;
+        sublayer.backgroundColor = UIColor.whiteColor().CGColor
+        sublayer.shadowOffset = CGSizeMake(0, 3);
+        sublayer.shadowRadius = 5.0;
+        sublayer.shadowColor = UIColor.blackColor().CGColor
+        sublayer.shadowOpacity = 0.8;
 //        sublayer.cornerRadius = 12.0;
-        sublayer.frame = CGRectMake(0, 50, 200, 200);
-//        sublayer.borderColor = UIColor.blackColor().CGColor;
-//        sublayer.borderWidth = 0.5;
+        sublayer.frame = CGRectMake(40, 20, 290 , 290);
+        sublayer.borderColor = UIColor.blackColor().CGColor;
+        sublayer.borderWidth = 0.5;
         // .. ended original source initialization
         
         sublayer.contents = image?.CGImage
@@ -69,6 +70,8 @@ class PrijavaViewController: RSCodeReaderViewController {
             for barcode in barcodes {
                 print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
                 
+                self.alert(barcode.stringValue)
+
                 dispatch_async(dispatch_get_main_queue(), {
                     self.session.stopRunning()
                 });
@@ -80,11 +83,25 @@ class PrijavaViewController: RSCodeReaderViewController {
     
     
     }
+    
+    func alert(besedilo:String) {
+        let alertController = UIAlertController(title: "Alert", message:
+            besedilo, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+            
+            self.session.startRunning()
+
+        }))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*
