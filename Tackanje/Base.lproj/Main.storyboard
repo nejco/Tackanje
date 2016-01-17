@@ -350,7 +350,6 @@
         <!--GostovanjeQR View Controller-->
         <scene sceneID="iaN-JA-Yag">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZI-2r-sGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="E0h-5U-9bV" customClass="GostovanjeQRViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jPG-fZ-gMn"/>
@@ -369,6 +368,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZI-2r-sGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3583" y="1566"/>
         </scene>

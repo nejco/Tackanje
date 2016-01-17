@@ -39,13 +39,17 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
         sublayer.shadowColor = UIColor.blackColor().CGColor
         sublayer.shadowOpacity = 0.8;
         //        sublayer.cornerRadius = 12.0;
-        sublayer.frame = CGRectMake(20, 100, 290 , 290);
+        sublayer.frame = CGRectMake(40, 20, 290 , 290);
+        sublayer.borderColor = UIColor.blackColor().CGColor;
+        sublayer.borderWidth = 0.5;
         // .. ended original source initialization
+        
+        image = Util.resizeImage(image!, newWidth: 580)
+        
         
         sublayer.contents = image?.CGImage
         
         c.insertSublayer(sublayer, atIndex: 100)
-        
         
         
         

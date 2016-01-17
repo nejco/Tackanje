@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 import RSBarcodes_Swift
+import CryptoSwift
+
 
 class PrijavaViewController: RSCodeReaderViewController {
 
@@ -26,8 +28,22 @@ class PrijavaViewController: RSCodeReaderViewController {
         let email = defauls.stringForKey("email")!
         
 //        alert("\(ime),\(priimek),\(email)")
+        let s = "\(ime),\(priimek),\(email)"
+        
+        let enc = try! s.aesEncrypt(Static.key, iv: Static.iv)
+        let dec = try! enc.aesDecrypt(Static.key, iv: Static.iv)
+        
+        print(s) //string to encrypt
+        print("enc:\(enc)") //2r0+KirTTegQfF4wI8rws0LuV8h82rHyyYz7xBpXIpM=
+        print("dec:\(dec)") //string to encrypt
+        print("\(s == dec)") //true
+        
+        
+//        let input: [UInt8] = [0,1,2,3,4,5,6,7,8,9]
+//        input.encrypt(AES(key: "secret0key000000", iv:"0123456789012345", blockMode: .CBC))
+        
         //generiraj QR kodo
-        var image = RSUnifiedCodeGenerator.shared.generateCode("\(ime),\(priimek),\(email)", machineReadableCodeObjectType:AVMetadataObjectTypeQRCode)
+        var image = RSUnifiedCodeGenerator.shared.generateCode("\(enc)", machineReadableCodeObjectType:AVMetadataObjectTypeQRCode)
         
         image = RSAbstractCodeGenerator.resizeImage(image!, scale: 25)
         
@@ -55,6 +71,9 @@ class PrijavaViewController: RSCodeReaderViewController {
         sublayer.borderWidth = 0.5;
         // .. ended original source initialization
         
+        image = Util.resizeImage(image!, newWidth: 580)
+
+        
         sublayer.contents = image?.CGImage
         
         c.insertSublayer(sublayer, atIndex: 100)
@@ -70,7 +89,10 @@ class PrijavaViewController: RSCodeReaderViewController {
             for barcode in barcodes {
                 print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
                 
-                self.alert(barcode.stringValue)
+                let dec = try! barcode.stringValue.aesDecrypt(Static.key, iv: Static.iv)
+
+                
+                self.alert(dec)
 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.session.stopRunning()
