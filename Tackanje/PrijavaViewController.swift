@@ -31,12 +31,9 @@ class PrijavaViewController: RSCodeReaderViewController {
         let s = "\(ime),\(priimek),\(email)"
         
         let enc = try! s.aesEncrypt(Static.key, iv: Static.iv)
-        let dec = try! enc.aesDecrypt(Static.key, iv: Static.iv)
         
         print(s) //string to encrypt
         print("enc:\(enc)") //2r0+KirTTegQfF4wI8rws0LuV8h82rHyyYz7xBpXIpM=
-        print("dec:\(dec)") //string to encrypt
-        print("\(s == dec)") //true
         
         
 //        let input: [UInt8] = [0,1,2,3,4,5,6,7,8,9]
@@ -90,9 +87,18 @@ class PrijavaViewController: RSCodeReaderViewController {
                 print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
                 
                 let dec = try! barcode.stringValue.aesDecrypt(Static.key, iv: Static.iv)
-
                 
-                self.alert(dec)
+                let podatki = dec.characters.split{$0 == ","}.map(String.init)
+                
+                let predmet = Predmet()
+                
+                predmet.imePredmeta = podatki[0]
+                predmet.dodatneInformacije = podatki[1]
+                predmet.povezava = podatki[2]
+                
+                
+                self.alert("Ime predmeta:\(predmet.imePredmeta!) \nDodatne informacije:\(predmet.dodatneInformacije!)\nPovezava:\(predmet.povezava!)"
+)
 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.session.stopRunning()

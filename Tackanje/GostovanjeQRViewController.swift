@@ -15,8 +15,15 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //enkripcija
+        let s = "Ime predmeta, dodatne informacije o predmetu, http://example.com"
+        
+        let enc = try! s.aesEncrypt(Static.key, iv: Static.iv)
+
+        
         //generiraj QR kodo
-        var image = RSUnifiedCodeGenerator.shared.generateCode("informacije in predmetu", machineReadableCodeObjectType:AVMetadataObjectTypeQRCode)
+        var image = RSUnifiedCodeGenerator.shared.generateCode(enc, machineReadableCodeObjectType:AVMetadataObjectTypeQRCode)
         
         image = RSAbstractCodeGenerator.resizeImage(image!, scale: 25)
         
@@ -39,7 +46,7 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
         sublayer.shadowColor = UIColor.blackColor().CGColor
         sublayer.shadowOpacity = 0.8;
         //        sublayer.cornerRadius = 12.0;
-        sublayer.frame = CGRectMake(40, 20, 290 , 290);
+        sublayer.frame = CGRectMake(40, 80, 290 , 290);
         sublayer.borderColor = UIColor.blackColor().CGColor;
         sublayer.borderWidth = 0.5;
         // .. ended original source initialization
@@ -61,13 +68,28 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
             for barcode in barcodes {
                 print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
                 
-                self.alert(barcode.stringValue)
+                let dec = try! barcode.stringValue.aesDecrypt(Static.key, iv: Static.iv)
+                
+                let podatki = dec.characters.split{$0 == ","}.map(String.init)
+                
+                let oseba = Oseba()
+                
+                oseba.ime = podatki[0]
+                oseba.priimek = podatki[1]
+                oseba.email = podatki[2]
+                
+                let seja = Seja() // TODO izberi sejo
+                
+                seja.seznamPrisotnih.append(oseba)
+
+                
+                self.alert(dec)
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.session.stopRunning()
                 });
             }
-        }
+        } // end barcodesHandler
         
         
         
