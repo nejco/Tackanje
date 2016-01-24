@@ -17,7 +17,7 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
         
         
         //enkripcija
-        let s = "Ime predmeta, dodatne informacije o predmetu, http://example.com"
+        let s = "P,Ime predmeta, dodatne informacije o predmetu, http://example.com"
         
         let enc = try! s.aesEncrypt(Static.key, iv: Static.iv)
 
@@ -72,18 +72,30 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
                 
                 let podatki = dec.characters.split{$0 == ","}.map(String.init)
                 
-                let oseba = Oseba()
-                
-                oseba.ime = podatki[0]
-                oseba.priimek = podatki[1]
-                oseba.email = podatki[2]
-                
-                let seja = Seja() // TODO izberi sejo
-                
-                seja.seznamPrisotnih.append(oseba)
+                if podatki.count == 4 {
+                    if podatki[0] == "O" {
+                        let oseba = Oseba()
+                        
+                        oseba.ime = podatki[1]
+                        oseba.priimek = podatki[2]
+                        oseba.email = podatki[3]
+                        
+                        let seja = Seja() // TODO izberi sejo
+                        
+                        seja.seznamPrisotnih.append(oseba)
+                        
+                        
+                        self.alert("Uspesna prijava!",besedilo: "Ime:\(oseba.ime!)\nPriimek:\(oseba.priimek!)\nEmail:\(oseba.email!)")
+                        
+                    } else {
+                        self.alert("Napaka!",besedilo: "Skeniral si napacno kodo!")
+                    }
+                } else {
+                    self.alert("Napaka!", besedilo: "Skeniras lahko samo kodo aplikacije Tackanje!")
 
+                }
                 
-                self.alert(dec)
+                
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.session.stopRunning()
@@ -97,16 +109,19 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
         
     }
     
-    func alert(besedilo:String) {
-        let alertController = UIAlertController(title: "Alert", message:
-            besedilo, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+    func alert(naslov:String, besedilo:String) {
+        dispatch_async(dispatch_get_main_queue(), {
+            let alertController = UIAlertController(title: naslov, message:
+                besedilo, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+                
+                self.session.startRunning()
+                
+            }))
             
-            self.session.startRunning()
-            
-        }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        })
         
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     

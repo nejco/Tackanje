@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class DrugiViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        saveName("Testni podateeeeek1")
+        getPredmeti()
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +24,85 @@ class DrugiViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func getPredmeti() {
+        var predmeti = [NSManagedObject]()
+        
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
 
-    /*
-    // MARK: - Navigation
+        let fetchRequest = NSFetchRequest(entityName: "ObiskovaniPredmeti")
+        
+        
+        //3
+        do {
+            let results =
+            try managedContext.executeFetchRequest(fetchRequest)
+            predmeti = results as! [NSManagedObject]
+            
+            for predmet in predmeti {
+                print("Predmet:\(predmet.valueForKey("imePredmeta")!)")
+                
+                
+                for seja in predmet.valueForKey("seje") as! NSSet {
+                    print("Seje:\(seja.valueForKey("tema")!)")
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+                }
+
+            }
+            
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+
     }
-    */
+    
+
+    func saveName(name: String) {
+        //1
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let obiskovaniPredmetiEntity =  NSEntityDescription.entityForName("ObiskovaniPredmeti",
+            inManagedObjectContext:managedContext)
+        
+        let obiskovaneSejeEntity =  NSEntityDescription.entityForName("ObiskovaneSeje",
+            inManagedObjectContext:managedContext)
+        
+        
+        
+        let obiskaniPredmeti = NSManagedObject(entity: obiskovaniPredmetiEntity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        let obiskovaneSeje = NSManagedObject(entity: obiskovaneSejeEntity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        //3
+        obiskaniPredmeti.setValue(name, forKey: "imePredmeta")
+        obiskaniPredmeti.setValue(name, forKey: "povezava")
+        obiskaniPredmeti.setValue(name, forKey: "dodatneInformacije")
+        
+        obiskovaneSeje.setValue("Sejaaaaaa", forKey: "tema")
+        obiskovaneSeje.setValue(NSDate(), forKey: "datum")
+
+        
+        
+        obiskaniPredmeti.setValue(NSSet(object: obiskovaneSeje), forKey: "seje")
+
+        
+        
+        //4
+        do {
+            try managedContext.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
 
 }

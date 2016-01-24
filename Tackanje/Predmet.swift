@@ -17,10 +17,7 @@ class Predmet {
     
     var seznamSej:[Seja]
     
-    var seznamObiskovalcev:[Oseba]
-    
     init() {
-        seznamObiskovalcev = [Oseba()]
         seznamSej = [Seja()]
     }
 

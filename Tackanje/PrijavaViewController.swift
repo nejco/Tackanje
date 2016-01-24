@@ -28,16 +28,13 @@ class PrijavaViewController: RSCodeReaderViewController {
         let email = defauls.stringForKey("email")!
         
 //        alert("\(ime),\(priimek),\(email)")
-        let s = "\(ime),\(priimek),\(email)"
+        let s = "O,\(ime),\(priimek),\(email)"
         
         let enc = try! s.aesEncrypt(Static.key, iv: Static.iv)
         
         print(s) //string to encrypt
         print("enc:\(enc)") //2r0+KirTTegQfF4wI8rws0LuV8h82rHyyYz7xBpXIpM=
         
-        
-//        let input: [UInt8] = [0,1,2,3,4,5,6,7,8,9]
-//        input.encrypt(AES(key: "secret0key000000", iv:"0123456789012345", blockMode: .CBC))
         
         //generiraj QR kodo
         var image = RSUnifiedCodeGenerator.shared.generateCode("\(enc)", machineReadableCodeObjectType:AVMetadataObjectTypeQRCode)
@@ -49,6 +46,7 @@ class PrijavaViewController: RSCodeReaderViewController {
         self.focusMarkLayer.strokeColor = UIColor.redColor().CGColor
         
         self.cornersLayer.strokeColor = UIColor.yellowColor().CGColor
+        
         
         let c = CALayer()
         
@@ -75,53 +73,61 @@ class PrijavaViewController: RSCodeReaderViewController {
         
         c.insertSublayer(sublayer, atIndex: 100)
         
-        
-        
-        
-        
-        
+        2
         self.view.layer.addSublayer(c)
         
         self.barcodesHandler = { barcodes in
-            for barcode in barcodes {
-                print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
-                
-                let dec = try! barcode.stringValue.aesDecrypt(Static.key, iv: Static.iv)
-                
-                let podatki = dec.characters.split{$0 == ","}.map(String.init)
-                
-                let predmet = Predmet()
-                
-                predmet.imePredmeta = podatki[0]
-                predmet.dodatneInformacije = podatki[1]
-                predmet.povezava = podatki[2]
-                
-                
-                self.alert("Ime predmeta:\(predmet.imePredmeta!) \nDodatne informacije:\(predmet.dodatneInformacije!)\nPovezava:\(predmet.povezava!)"
-)
+            var isScanned = false
 
+            for barcode in barcodes {
+                if isScanned == false {
+                    isScanned = true
+                    let dec = try! barcode.stringValue.aesDecrypt(Static.key, iv: Static.iv)
+                    
+                    let podatki = dec.characters.split{$0 == ","}.map(String.init)
+                    
+                    let predmet = Predmet()
+                    
+                    
+                    if podatki.count == 4 {
+                        if podatki[0] == "P" {
+                            predmet.imePredmeta = podatki[1]
+                            predmet.dodatneInformacije = podatki[2]
+                            predmet.povezava = podatki[3]
+                            
+                            self.alert("Uspesna prijava",besedilo: "Ime predmeta:\(predmet.imePredmeta!) \nDodatne informacije:\(predmet.dodatneInformacije!)\nPovezava:\(predmet.povezava!)")
+                            
+                        } else {
+                            self.alert("Napaka!", besedilo: "Skeniral si napacno kodo!")
+                        }
+                        
+                    } else {
+                        self.alert("Napaka!", besedilo:"Skeniras lahko samo kodo aplikacije Tackanje!")
+                    }
+                }
+                
                 dispatch_async(dispatch_get_main_queue(), {
                     self.session.stopRunning()
+                    isScanned = false
                 });
             }
         }
-        
-        
-
-    
-    
     }
     
-    func alert(besedilo:String) {
-        let alertController = UIAlertController(title: "Alert", message:
-            besedilo, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+    func alert(naslov:String, besedilo:String) {
+        dispatch_async(dispatch_get_main_queue(), {
             
-            self.session.startRunning()
-
-        }))
+            let alertController = UIAlertController(title: naslov, message:
+                besedilo, preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+                
+                self.session.startRunning()
+                
+            }))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        })
         
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
 

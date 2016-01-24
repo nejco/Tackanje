@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15E27e" minimumToolsVersion="Automatic">
+    <entity name="GostovaneSeje" representedClassName="GostovaneSeje" syncable="YES">
+        <attribute name="datum" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="tema" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="obiskovalci" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Obiskovalci" inverseName="seja" inverseEntity="Obiskovalci" syncable="YES"/>
+        <relationship name="predmet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GostovaniPredmeti" inverseName="seja" inverseEntity="GostovaniPredmeti" syncable="YES"/>
+    </entity>
+    <entity name="GostovaniPredmeti" representedClassName="GostovaniPredmeti" syncable="YES">
+        <attribute name="dodatneInformacije" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imePredmeta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="povezava" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="seja" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GostovaneSeje" inverseName="predmet" inverseEntity="GostovaneSeje" syncable="YES"/>
+    </entity>
+    <entity name="Obiskovalci" representedClassName="Obiskovalci" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priimek" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="seja" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GostovaneSeje" inverseName="obiskovalci" inverseEntity="GostovaneSeje" syncable="YES"/>
+    </entity>
+    <entity name="ObiskovaneSeje" representedClassName="ObiskovaneSeje" syncable="YES">
+        <attribute name="datum" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="tema" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="predmeti" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ObiskovaniPredmeti" inverseName="seje" inverseEntity="ObiskovaniPredmeti" syncable="YES"/>
+    </entity>
+    <entity name="ObiskovaniPredmeti" representedClassName="ObiskovaniPredmeti" syncable="YES">
+        <attribute name="dodatneInformacije" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imePredmeta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="povezava" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="seje" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ObiskovaneSeje" inverseName="predmeti" inverseEntity="ObiskovaneSeje" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ObiskovaniPredmeti" positionX="-333" positionY="-141" width="128" height="103"/>
+        <element name="ObiskovaneSeje" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="GostovaniPredmeti" positionX="-72" positionY="147" width="128" height="103"/>
+        <element name="GostovaneSeje" positionX="124" positionY="-81" width="128" height="103"/>
+        <element name="Obiskovalci" positionX="133" positionY="192" width="128" height="103"/>
+    </elements>
 </model>

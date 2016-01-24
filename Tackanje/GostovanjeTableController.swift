@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class GostovanjeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +27,8 @@ class GostovanjeViewController: UIViewController, UITableViewDataSource, UITable
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

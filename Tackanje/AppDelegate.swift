@@ -27,21 +27,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        
 //        let defaults = NSUserDefaults.standardUserDefaults()
 //
-//        if defaults.stringForKey("ime")?.isEmpty == true ||
-//            defaults.stringForKey("priimek")?.isEmpty == true ||
-//            defaults.stringForKey("email")?.isEmpty == true {
+//        
+//        let ime = defaults.stringForKey("ime")
+//        let priimek = defaults.stringForKey("priimek")
+//        let email = defaults.stringForKey("email")
+//        
+//        print("NSUSERDEFAULTS:\(ime),\(priimek),\(email)")
+//        
+//        
+//        
+//        
+//        if defaults.stringForKey("ime")?.characters.count < 3 ||
+//            defaults.stringForKey("priimek")?.characters.count < 3 ||
+//            defaults.stringForKey("email")?.characters.count < 3 {
 //                
 //            self.window?.rootViewController = login
 //
 //        } else {
 //            self.window?.rootViewController = glavni
-//
-//        }
-//        
-//        self.window?.rootViewController = glavni
-//        
+//        } // end else if
+//                
 //        self.window?.makeKeyAndVisible()
-//        
+        
         return true
     }
 

@@ -169,11 +169,11 @@
 				CEC5C8D81C48255F00D09237 /* Assets.xcassets */,
 				CEC5C8DA1C48255F00D09237 /* LaunchScreen.storyboard */,
 				CEC5C8DD1C48255F00D09237 /* Info.plist */,
-				CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */,
-				CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */,
 				CEAF42C41C4A524500E7B0F7 /* Static.swift */,
 				CE3D60FA1C4AD56900E356BE /* Extension.swift */,
 				CE3D60FC1C4B0E1300E356BE /* Util.swift */,
+				CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */,
+				CEC5C8D51C48255F00D09237 /* Tackanje.xcdatamodeld */,
 			);
 			path = Tackanje;
 			sourceTree = "<group>";
