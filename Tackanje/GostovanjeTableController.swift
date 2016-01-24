@@ -13,12 +13,16 @@ import CoreData
 class GostovanjeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    var seznamPredmetov = ["Varnost IKT", "Razvoj vseprisotnih informacijskih resitev",
-        "Osnove telekomunikacijskih aplikacijskih storitev", "Podatkovne baze 2", "Konvergenca in integracija sistemov"]
+    var seznamPredmetov:[String]?
+    var predmeti = [NSManagedObject]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:",name:"load", object: nil)
+
+        getPredmeti()
+
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -29,6 +33,12 @@ class GostovanjeViewController: UIViewController, UITableViewDataSource, UITable
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         
+    }
+    
+    func refresh(notification: NSNotification){
+        //load data here
+        getPredmeti()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,13 +55,13 @@ class GostovanjeViewController: UIViewController, UITableViewDataSource, UITable
 
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return seznamPredmetov.count
+        return seznamPredmetov!.count
     }
 
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("gostovanjeCell", forIndexPath: indexPath) as! GostovanjeTableViewCell
 
-        cell.title.text = seznamPredmetov[indexPath.row]
+        cell.title.text = seznamPredmetov![indexPath.row]
         
 
         return cell
@@ -65,10 +75,65 @@ class GostovanjeViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
-            seznamPredmetov.removeAtIndex(indexPath.row)
+//            seznamPredmetov!.removeAtIndex(indexPath.row)
+//            
+//            predmeti.removeAtIndex(indexPath.row)
+            
+            let appDelegate =
+                UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            let managedContext = appDelegate.managedObjectContext
+
+            managedContext.deleteObject(predmeti[indexPath.row])
+
+            do {
+                try managedContext.save()
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+            
+            getPredmeti()
+            
             tableView.reloadData()
         }
     }
+    
+    func getPredmeti() {
+        
+        var seznam = Array<String>()
+        
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "GostovaniPredmeti")
+        
+        
+        //3
+        do {
+            let results =
+            try managedContext.executeFetchRequest(fetchRequest)
+            predmeti = results as! [NSManagedObject]
+            
+            for predmet in predmeti {
+//                print("Predmet:\(predmet.valueForKey("imePredmeta")!)")
+                seznam.append("\(predmet.valueForKey("imePredmeta")!)")
+                
+            }
+            
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        seznamPredmetov = seznam
+        
+    }
+
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

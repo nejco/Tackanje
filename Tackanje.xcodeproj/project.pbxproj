@@ -13,6 +13,7 @@
 		CE3D60FF1C4B133E00E356BE /* Predmet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D60FE1C4B133E00E356BE /* Predmet.swift */; };
 		CE3D61011C4B141700E356BE /* Seja.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D61001C4B141700E356BE /* Seja.swift */; };
 		CE3D61031C4B144F00E356BE /* Oseba.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3D61021C4B144F00E356BE /* Oseba.swift */; };
+		CEA93F541C555220007D294E /* DodajPredmetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA93F531C555220007D294E /* DodajPredmetViewController.swift */; };
 		CEAF42B71C491FC700E7B0F7 /* DrugiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */; };
 		CEAF42B91C49228000E7B0F7 /* GlavniTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42B81C49228000E7B0F7 /* GlavniTabBarController.swift */; };
 		CEAF42BB1C49256C00E7B0F7 /* PrijavaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42BA1C49256C00E7B0F7 /* PrijavaViewController.swift */; };
@@ -56,6 +57,7 @@
 		CE3D60FE1C4B133E00E356BE /* Predmet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predmet.swift; sourceTree = "<group>"; };
 		CE3D61001C4B141700E356BE /* Seja.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seja.swift; sourceTree = "<group>"; };
 		CE3D61021C4B144F00E356BE /* Oseba.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oseba.swift; sourceTree = "<group>"; };
+		CEA93F531C555220007D294E /* DodajPredmetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DodajPredmetViewController.swift; path = ../DodajPredmetViewController.swift; sourceTree = "<group>"; };
 		CEAF42B31C49116100E7B0F7 /* Tackanje.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Tackanje.entitlements; sourceTree = "<group>"; };
 		CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugiViewController.swift; sourceTree = "<group>"; };
 		CEAF42B81C49228000E7B0F7 /* GlavniTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlavniTabBarController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */,
 				CEAF42BA1C49256C00E7B0F7 /* PrijavaViewController.swift */,
 				CEAF42BC1C4990DD00E7B0F7 /* GostovanjeViewController.swift */,
+				CEA93F531C555220007D294E /* DodajPredmetViewController.swift */,
 				CEC5C8D01C48255F00D09237 /* LoginViewController.swift */,
 				CEC5C8D21C48255F00D09237 /* Main.storyboard */,
 				CEAF42C61C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift */,
@@ -394,6 +397,7 @@
 				CEAF42BF1C49911700E7B0F7 /* GostovanjeTableController.swift in Sources */,
 				CE3D61011C4B141700E356BE /* Seja.swift in Sources */,
 				CEAF42B71C491FC700E7B0F7 /* DrugiViewController.swift in Sources */,
+				CEA93F541C555220007D294E /* DodajPredmetViewController.swift in Sources */,
 				CE3D61031C4B144F00E356BE /* Oseba.swift in Sources */,
 				CE3D60FB1C4AD56900E356BE /* Extension.swift in Sources */,
 				CEAF42C31C4A479400E7B0F7 /* GostovanjeQRViewController.swift in Sources */,
@@ -551,6 +555,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.Tackanje;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -567,6 +572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.vidrih.Tackanje;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

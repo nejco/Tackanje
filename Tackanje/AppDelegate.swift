@@ -18,36 +18,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        
-//        let glavni: GlavniTabBarController = mainStoryboard.instantiateViewControllerWithIdentifier("glavni") as! GlavniTabBarController
-//        
-//        let login: LoginViewController = mainStoryboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
-//        
-//        let defaults = NSUserDefaults.standardUserDefaults()
-//
-//        
-//        let ime = defaults.stringForKey("ime")
-//        let priimek = defaults.stringForKey("priimek")
-//        let email = defaults.stringForKey("email")
-//        
-//        print("NSUSERDEFAULTS:\(ime),\(priimek),\(email)")
-//        
-//        
-//        
-//        
-//        if defaults.stringForKey("ime")?.characters.count < 3 ||
-//            defaults.stringForKey("priimek")?.characters.count < 3 ||
-//            defaults.stringForKey("email")?.characters.count < 3 {
-//                
-//            self.window?.rootViewController = login
-//
-//        } else {
-//            self.window?.rootViewController = glavni
-//        } // end else if
-//                
-//        self.window?.makeKeyAndVisible()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let glavni: GlavniTabBarController = mainStoryboard.instantiateViewControllerWithIdentifier("glavni") as! GlavniTabBarController
+        
+        let login: LoginViewController = mainStoryboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+
+        
+        let ime = defaults.stringForKey("ime")
+        let priimek = defaults.stringForKey("priimek")
+        let email = defaults.stringForKey("email")
+        
+        print("NSUSERDEFAULTS:\(ime),\(priimek),\(email)")
+        
+        
+        
+        
+        if defaults.stringForKey("ime")?.characters.count < 3 ||
+            defaults.stringForKey("priimek")?.characters.count < 3 ||
+            defaults.stringForKey("email")?.characters.count < 3 {
+                
+            self.window?.rootViewController = login
+
+        } else {
+            self.window?.rootViewController = glavni
+        } // end else if
+                
+        self.window?.makeKeyAndVisible()
         
         return true
     }

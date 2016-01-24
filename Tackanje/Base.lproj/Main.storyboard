@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LwC-AV-l7U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WT7-X6-o0d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -307,7 +307,13 @@
                             <constraint firstAttribute="trailing" secondItem="3Wf-0W-h14" secondAttribute="trailing" id="xLr-s1-Ef5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Uh-yg-EXR"/>
+                    <navigationItem key="navigationItem" id="8Uh-yg-EXR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5zC-bs-au2">
+                            <connections>
+                                <segue destination="rqd-xQ-MOu" kind="show" id="ZCG-93-6s9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="3Wf-0W-h14" id="bt6-1B-1Sv"/>
                     </connections>
@@ -326,7 +332,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="seje" id="uuf-qZ-iF0">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuf-qZ-iF0" id="ghS-rX-I8I">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -346,6 +352,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiV-AU-lL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2140" y="1566"/>
+        </scene>
+        <!--Dodaj Predmet View Controller-->
+        <scene sceneID="gqX-J2-Swt">
+            <objects>
+                <viewController id="rqd-xQ-MOu" customClass="DodajPredmetViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q1y-mW-08Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="W5l-c5-KvL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6CB-3T-NNF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Naziv predmeta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zQU-bG-6ao">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Opis predmeta" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frj-Jx-mxz">
+                                <rect key="frame" x="20" y="110" width="560" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="GB6-Ej-XK0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES" calendarEvent="YES"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Povezava do predmeta" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2T-8T-KCJ">
+                                <rect key="frame" x="20" y="238" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="frj-Jx-mxz" firstAttribute="top" secondItem="zQU-bG-6ao" secondAttribute="bottom" constant="8" id="SOu-fM-mgf"/>
+                            <constraint firstItem="A2T-8T-KCJ" firstAttribute="top" secondItem="frj-Jx-mxz" secondAttribute="bottom" constant="8" id="Uek-XH-vOD"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="frj-Jx-mxz" secondAttribute="leading" id="dya-Ol-XTM"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="zQU-bG-6ao" secondAttribute="leading" id="euI-sK-Rnc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zQU-bG-6ao" secondAttribute="trailing" id="ev8-o6-sOs"/>
+                            <constraint firstItem="zQU-bG-6ao" firstAttribute="top" secondItem="q1y-mW-08Z" secondAttribute="bottom" constant="8" id="fjg-4c-TU0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="frj-Jx-mxz" secondAttribute="trailing" id="gw9-a7-DfC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="A2T-8T-KCJ" secondAttribute="leading" id="jxu-WA-5Fj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A2T-8T-KCJ" secondAttribute="trailing" id="mEE-es-3aT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YkS-XE-06V">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wut-WN-6MT">
+                            <connections>
+                                <action selector="shrani:" destination="rqd-xQ-MOu" id="ays-LQ-Nvx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nazivPredmeta" destination="zQU-bG-6ao" id="bRw-Ss-yeM"/>
+                        <outlet property="opisPredmeta" destination="frj-Jx-mxz" id="PqQ-7I-mvd"/>
+                        <outlet property="povezava" destination="A2T-8T-KCJ" id="Scf-z8-p3c"/>
+                        <segue destination="9TI-LH-rt5" kind="show" identifier="gostuj" id="d7M-nE-ylE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mmE-vt-Fv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="2318"/>
         </scene>
         <!--GostovanjeQR View Controller-->
         <scene sceneID="iaN-JA-Yag">
@@ -435,6 +505,7 @@
         <image name="Virtual Machine Filled-50" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7fg-Gy-ruq"/>
+        <segue reference="RZb-34-IHU"/>
+        <segue reference="d7M-nE-ylE"/>
     </inferredMetricsTieBreakers>
 </document>
