@@ -9,12 +9,16 @@
 import UIKit
 import CoreData
 
-class GostujSejoTableController: UITableViewController {
+
+class GostujSejo2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
     
     var seznamSej = Array<String>()
     var izbranPredmet:Int?
     var predmeti = [NSManagedObject]()
-
+    var izbranPredmetString:String?
+    var povezava:String?
+    var dodatneInformacije:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,6 @@ class GostujSejoTableController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,17 +41,17 @@ class GostujSejoTableController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return seznamSej.count
     }
     
-     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("seje", forIndexPath: indexPath)
         
         cell.textLabel?.text = seznamSej[indexPath.row]
@@ -58,14 +61,14 @@ class GostujSejoTableController: UITableViewController {
     }
     
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
-//            seznamSej!.removeAtIndex(indexPath.row)
+            //            seznamSej!.removeAtIndex(indexPath.row)
             tableView.reloadData()
         }
     }
@@ -91,16 +94,20 @@ class GostujSejoTableController: UITableViewController {
             var i = 0
             
             for predmet in predmeti {
-//                print("Predmet:\(predmet.valueForKey("imePredmeta")!)")
+                //                print("Predmet:\(predmet.valueForKey("imePredmeta")!)")
                 
                 if i == izbranPredmet! {
+                    izbranPredmetString = "\(predmet.valueForKey("imePredmeta")!)"
+                    povezava = "\(predmet.valueForKey("povezava")!)"
+                    dodatneInformacije = "\(predmet.valueForKey("dodatneInformacije")!)"
+
                     for seja in predmet.valueForKey("seja") as! NSSet {
-//                        print("Seje:\(seja.valueForKey("tema")!)")
+                        //                        print("Seje:\(seja.valueForKey("tema")!)")
                         seznamSej.append("\(seja.valueForKey("tema")!)")
                         
                     }
                 }
-              
+                
                 i++
             }
             
@@ -109,49 +116,27 @@ class GostujSejoTableController: UITableViewController {
         }
         
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
     
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "dodajSejo") {
+            let svc = segue.destinationViewController as! DodajSejoViewController;
+            
+            svc.izbranPredmet = izbranPredmet
+            
+            svc.imePredmeta = izbranPredmetString
+            
+        } else if segue.identifier == "qr" {
+            let destinationNavigationController = segue.destinationViewController as! UINavigationController
+            let targetController = destinationNavigationController.topViewController as! GostovanjeQRViewController
+            
+            targetController.tema = seznamSej[(self.tableView.indexPathForCell(sender as! UITableViewCell)?.row)!]
+            
+            let predmet = Predmet()
+            predmet.imePredmeta = izbranPredmetString
+            predmet.povezava = povezava
+            predmet.dodatneInformacije = dodatneInformacije
+            
+            targetController.predmet = predmet
+        }
     }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
 }

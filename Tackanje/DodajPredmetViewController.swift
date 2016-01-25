@@ -14,7 +14,6 @@ class DodajPredmetViewController: UIViewController {
     @IBOutlet weak var opisPredmeta: UITextView!
     @IBOutlet weak var povezava: UITextField!
     
-    
     @IBAction func shrani(sender: UIBarButtonItem) {
         dodajPredmet(nazivPredmeta.text!, opis: opisPredmeta.text!, povezava: povezava.text!)
         
@@ -80,8 +79,7 @@ class DodajPredmetViewController: UIViewController {
 
         performSegueWithIdentifier("gostuj", sender: self)
     }
-
-
+    
     /*
     // MARK: - Navigation
 

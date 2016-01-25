@@ -12,9 +12,20 @@ import RSBarcodes_Swift
 
 class GostovanjeQRViewController: RSCodeReaderViewController {
     
+    var predmet:Predmet?
+    
+    var tema:String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        print("tema:\(tema)")
+        print("imePredmeta:\(predmet?.imePredmeta)")
+        print("povezava:\(predmet?.povezava)")
+        print("info:\(predmet?.dodatneInformacije)")
         
         //enkripcija
         let s = "P,Ime predmeta, dodatne informacije o predmetu, http://example.com"

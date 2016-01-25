@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let login: LoginViewController = mainStoryboard.instantiateViewControllerWithIdentifier("login") as! LoginViewController
         
+        let drugi: DrugiViewController = mainStoryboard.instantiateViewControllerWithIdentifier("drugi") as! DrugiViewController
+
+        
         let defaults = NSUserDefaults.standardUserDefaults()
 
         
@@ -46,7 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             self.window?.rootViewController = glavni
         } // end else if
-                
+        
+//        self.window?.rootViewController = drugi
+        
         self.window?.makeKeyAndVisible()
         
         return true

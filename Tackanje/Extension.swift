@@ -8,6 +8,8 @@
 
 import Foundation
 import CryptoSwift
+import CoreData
+
 extension String {
     func aesEncrypt(key: String, iv: String) throws -> String{
         let data = self.dataUsingEncoding(NSUTF8StringEncoding)
@@ -23,5 +25,12 @@ extension String {
         let decData = NSData(bytes: dec, length: Int(dec.count))
         let result = NSString(data: decData, encoding: NSUTF8StringEncoding)
         return String(result!)
+    }
+}
+
+extension NSManagedObject {
+    func addObject(value: NSManagedObject, forKey: String) {
+        var items = self.mutableSetValueForKey(forKey);
+        items.addObject(value)
     }
 }
