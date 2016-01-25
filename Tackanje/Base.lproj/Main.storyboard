@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Seznam Predmetov View Controller-->
         <scene sceneID="g9H-m2-AVD">
             <objects>
-                <viewController id="Olh-qk-Usz" sceneMemberID="viewController">
+                <viewController id="Olh-qk-Usz" customClass="SeznamPredmetovViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qjd-wY-U1u"/>
                         <viewControllerLayoutGuide type="bottom" id="DTp-nD-5yO"/>
@@ -44,6 +44,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Olh-qk-Usz" id="9fn-O0-cZo"/>
+                                    <outlet property="delegate" destination="Olh-qk-Usz" id="QlF-s5-FtO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,21 +59,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bDZ-jN-r9M">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yeZ-rj-SSv">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Sqn-ZF-miA">
                             <connections>
-                                <segue destination="haa-k1-edd" kind="show" id="fbI-Ff-PSc"/>
+                                <action selector="logout:" destination="Olh-qk-Usz" id="eyl-Ey-fZJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="vqT-ze-O5t" id="cae-kz-9yj"/>
+                        <segue destination="WT7-X6-o0d" kind="presentation" identifier="logout" id="shl-PO-MCk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="reZ-5P-7wD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1292" y="348"/>
         </scene>
-        <!--View Controller-->
+        <!--Porocilo View Controller-->
         <scene sceneID="LVd-7v-Sae">
             <objects>
-                <viewController id="Dch-tG-7tj" sceneMemberID="viewController">
+                <viewController id="Dch-tG-7tj" customClass="PorociloViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="afu-MA-CMi"/>
                         <viewControllerLayoutGuide type="bottom" id="zqB-9x-gM8"/>
@@ -91,37 +99,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouW-4a-Iea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2372" y="-44"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="GjE-UO-K96">
-            <objects>
-                <viewController id="haa-k1-edd" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eh1-cV-Ljo"/>
-                        <viewControllerLayoutGuide type="bottom" id="d0R-Rt-syC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iBu-gy-Mew">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forma za dodajanje predmeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COl-PH-spb">
-                                <rect key="frame" x="48" y="199" width="228" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="znX-LU-Na8"/>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="axi-5u-Bks"/>
-                    </toolbarItems>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T2T-y6-L6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2364" y="676"/>
         </scene>
         <!--Prijava na sejo-->
         <scene sceneID="kKg-71-MYc">
@@ -400,6 +377,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="trq-Wu-WXO">
+                        <barButtonItem key="leftBarButtonItem" title="Registracija na predmet" id="UXP-Mc-qMo">
+                            <connections>
+                                <segue destination="d08-ms-GOY" kind="show" identifier="registracijaNaPredmet" id="37D-W5-Doa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="BzS-qs-45F">
                             <connections>
                                 <segue destination="9Ca-KH-KJR" kind="presentation" modalTransitionStyle="flipHorizontal" id="7fg-Gy-ruq"/>
@@ -410,6 +392,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZI-2r-sGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3407" y="1554"/>
+        </scene>
+        <!--Gostovanje PredmetaQR View Controller-->
+        <scene sceneID="O9W-Th-Ni2">
+            <objects>
+                <viewController id="d08-ms-GOY" customClass="GostovanjePredmetaQRViewController" customModule="Tackanje" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OPP-nE-H91"/>
+                        <viewControllerLayoutGuide type="bottom" id="vTy-7E-FyO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ATB-aK-YiF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR koda predmeta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJ0-VG-QXV">
+                                <rect key="frame" x="228" y="28" width="144" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mPw-LS-cau">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="heg-Fs-AYI"/>
+                                    <constraint firstAttribute="height" constant="300" id="ttA-tg-fij"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oJ0-VG-QXV" firstAttribute="centerX" secondItem="ATB-aK-YiF" secondAttribute="centerX" id="5fa-7a-Wm1"/>
+                            <constraint firstItem="mPw-LS-cau" firstAttribute="centerX" secondItem="ATB-aK-YiF" secondAttribute="centerX" id="XJ0-K2-4bT"/>
+                            <constraint firstItem="mPw-LS-cau" firstAttribute="centerY" secondItem="ATB-aK-YiF" secondAttribute="centerY" id="XXX-KM-SeJ"/>
+                            <constraint firstItem="oJ0-VG-QXV" firstAttribute="top" secondItem="OPP-nE-H91" secondAttribute="bottom" constant="8" id="fdd-w5-9p0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="qr" destination="mPw-LS-cau" id="Fh9-TL-54B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tzV-5X-NLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3407" y="2322"/>
         </scene>
         <!--Predmeti-->
         <scene sceneID="1OU-p3-1jM">
@@ -582,7 +606,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7fg-Gy-ruq"/>
+        <segue reference="nHS-iz-ijZ"/>
         <segue reference="PMg-X8-c8d"/>
-        <segue reference="Dmu-gD-ecZ"/>
     </inferredMetricsTieBreakers>
 </document>

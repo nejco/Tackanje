@@ -16,6 +16,8 @@
 		CE9B46881C5650E500904EEF /* GostujSejo2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B46871C5650E500904EEF /* GostujSejo2ViewController.swift */; };
 		CE9B468A1C5655AD00904EEF /* DodajSejoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B46891C5655AD00904EEF /* DodajSejoViewController.swift */; };
 		CE9B468E1C56678D00904EEF /* DodajPredmetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B468D1C56678D00904EEF /* DodajPredmetViewController.swift */; };
+		CE9B46901C56AE9900904EEF /* GostovanjePredmetaQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B468F1C56AE9900904EEF /* GostovanjePredmetaQRViewController.swift */; };
+		CE9B46921C56CA2800904EEF /* SeznamPredmetovViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9B46911C56CA2800904EEF /* SeznamPredmetovViewController.swift */; };
 		CEAF42B71C491FC700E7B0F7 /* DrugiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */; };
 		CEAF42B91C49228000E7B0F7 /* GlavniTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42B81C49228000E7B0F7 /* GlavniTabBarController.swift */; };
 		CEAF42BB1C49256C00E7B0F7 /* PrijavaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42BA1C49256C00E7B0F7 /* PrijavaViewController.swift */; };
@@ -24,7 +26,7 @@
 		CEAF42C11C49919900E7B0F7 /* GostovanjeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */; };
 		CEAF42C31C4A479400E7B0F7 /* GostovanjeQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */; };
 		CEAF42C51C4A524500E7B0F7 /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C41C4A524500E7B0F7 /* Static.swift */; };
-		CEAF42C71C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF42C61C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift */; };
+		CEBC6FA41C56D2B000EBE8DF /* PorociloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC6FA31C56D2B000EBE8DF /* PorociloViewController.swift */; };
 		CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */; };
 		CEC5C8D11C48255F00D09237 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC5C8D01C48255F00D09237 /* LoginViewController.swift */; };
 		CEC5C8D41C48255F00D09237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC5C8D21C48255F00D09237 /* Main.storyboard */; };
@@ -62,6 +64,8 @@
 		CE9B46871C5650E500904EEF /* GostujSejo2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostujSejo2ViewController.swift; sourceTree = "<group>"; };
 		CE9B46891C5655AD00904EEF /* DodajSejoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DodajSejoViewController.swift; path = ../DodajSejoViewController.swift; sourceTree = "<group>"; };
 		CE9B468D1C56678D00904EEF /* DodajPredmetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DodajPredmetViewController.swift; sourceTree = "<group>"; };
+		CE9B468F1C56AE9900904EEF /* GostovanjePredmetaQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjePredmetaQRViewController.swift; sourceTree = "<group>"; };
+		CE9B46911C56CA2800904EEF /* SeznamPredmetovViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeznamPredmetovViewController.swift; sourceTree = "<group>"; };
 		CEAF42B31C49116100E7B0F7 /* Tackanje.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Tackanje.entitlements; sourceTree = "<group>"; };
 		CEAF42B61C491FC700E7B0F7 /* DrugiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugiViewController.swift; sourceTree = "<group>"; };
 		CEAF42B81C49228000E7B0F7 /* GlavniTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlavniTabBarController.swift; sourceTree = "<group>"; };
@@ -71,7 +75,7 @@
 		CEAF42C01C49919900E7B0F7 /* GostovanjeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeTableViewCell.swift; sourceTree = "<group>"; };
 		CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostovanjeQRViewController.swift; sourceTree = "<group>"; };
 		CEAF42C41C4A524500E7B0F7 /* Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
-		CEAF42C61C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GostujSejoTableViewColler.swift; sourceTree = "<group>"; };
+		CEBC6FA31C56D2B000EBE8DF /* PorociloViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PorociloViewController.swift; sourceTree = "<group>"; };
 		CEC5C8CB1C48255E00D09237 /* Tackanje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tackanje.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC5C8CE1C48255F00D09237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEC5C8D01C48255F00D09237 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -165,8 +169,10 @@
 				CE9B468D1C56678D00904EEF /* DodajPredmetViewController.swift */,
 				CEC5C8D01C48255F00D09237 /* LoginViewController.swift */,
 				CEC5C8D21C48255F00D09237 /* Main.storyboard */,
+				CEBC6FA31C56D2B000EBE8DF /* PorociloViewController.swift */,
+				CE9B46911C56CA2800904EEF /* SeznamPredmetovViewController.swift */,
+				CE9B468F1C56AE9900904EEF /* GostovanjePredmetaQRViewController.swift */,
 				CE9B46871C5650E500904EEF /* GostujSejo2ViewController.swift */,
-				CEAF42C61C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift */,
 				CE9B46891C5655AD00904EEF /* DodajSejoViewController.swift */,
 				CEAF42BE1C49911700E7B0F7 /* GostovanjeTableController.swift */,
 				CEAF42C21C4A479400E7B0F7 /* GostovanjeQRViewController.swift */,
@@ -408,11 +414,13 @@
 				CEAF42B71C491FC700E7B0F7 /* DrugiViewController.swift in Sources */,
 				CE3D61031C4B144F00E356BE /* Oseba.swift in Sources */,
 				CE3D60FB1C4AD56900E356BE /* Extension.swift in Sources */,
+				CE9B46901C56AE9900904EEF /* GostovanjePredmetaQRViewController.swift in Sources */,
 				CEAF42C31C4A479400E7B0F7 /* GostovanjeQRViewController.swift in Sources */,
+				CEBC6FA41C56D2B000EBE8DF /* PorociloViewController.swift in Sources */,
+				CE9B46921C56CA2800904EEF /* SeznamPredmetovViewController.swift in Sources */,
 				CE3D60FF1C4B133E00E356BE /* Predmet.swift in Sources */,
 				CE3D60FD1C4B0E1300E356BE /* Util.swift in Sources */,
 				CEC5C8CF1C48255F00D09237 /* AppDelegate.swift in Sources */,
-				CEAF42C71C4A5A7300E7B0F7 /* GostujSejoTableViewColler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

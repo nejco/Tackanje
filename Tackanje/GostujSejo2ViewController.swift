@@ -132,9 +132,9 @@ class GostujSejo2ViewController: UIViewController, UITableViewDataSource, UITabl
             targetController.tema = seznamSej[(self.tableView.indexPathForCell(sender as! UITableViewCell)?.row)!]
             
             let predmet = Predmet()
-            predmet.imePredmeta = izbranPredmetString
-            predmet.povezava = povezava
-            predmet.dodatneInformacije = dodatneInformacije
+            predmet.imePredmeta = izbranPredmetString!
+            predmet.povezava = povezava!
+            predmet.dodatneInformacije = dodatneInformacije!
             
             targetController.predmet = predmet
         }

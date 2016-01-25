@@ -28,7 +28,9 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
         print("info:\(predmet?.dodatneInformacije)")
         
         //enkripcija
-        let s = "P,Ime predmeta, dodatne informacije o predmetu, http://example.com"
+//        let s = "P,Ime predmeta, dodatne informacije o predmetu, http://example.com"
+        let s = "S,\(predmet!.imePredmeta!),\(tema!)"
+        print(s)
         
         let enc = try! s.aesEncrypt(Static.key, iv: Static.iv)
 
@@ -141,6 +143,13 @@ class GostovanjeQRViewController: RSCodeReaderViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "registracijaNaPredmet") {
+            let svc = segue.destinationViewController as! GostovanjePredmetaQRViewController;
+            
+            svc.predmet = predmet
+        }
+    }
     
     
     /*

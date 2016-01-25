@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 import RSBarcodes_Swift
 import CryptoSwift
+import AudioToolbox
+
 
 
 class PrijavaViewController: RSCodeReaderViewController {
@@ -89,12 +91,28 @@ class PrijavaViewController: RSCodeReaderViewController {
                     let predmet = Predmet()
                     
                     
+                    
+                    if podatki.count == 3 {
+                        if podatki[0] == "S" {
+                            let imePredmeta = podatki[1]
+                            let tema = podatki[2]
+  
+                            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+
+//                            self.alert("Uspesna prijava na sejo",besedilo: "Ime predmeta:\(imePredmeta) \nTema:\(tema)")
+//                            self.alert("Uspesna prijava na sejo",besedilo: "")
+
+                            
+                        }
+                    } else
+                    
                     if podatki.count == 4 {
                         if podatki[0] == "P" {
                             predmet.imePredmeta = podatki[1]
-                            predmet.dodatneInformacije = podatki[2]
-                            predmet.povezava = podatki[3]
-                            
+                            predmet.povezava = podatki[2]
+                            predmet.dodatneInformacije = podatki[3]
+                            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+
                             self.alert("Uspesna prijava",besedilo: "Ime predmeta:\(predmet.imePredmeta!) \nDodatne informacije:\(predmet.dodatneInformacije!)\nPovezava:\(predmet.povezava!)")
                             
                         } else {
