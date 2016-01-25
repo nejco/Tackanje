@@ -10,10 +10,15 @@ import UIKit
 import MessageUI
 
 class PorociloViewController: UIViewController, MFMailComposeViewControllerDelegate {
+    
+    var isGostovan:Bool?
+    var imePredmeta:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendEmail()
+        
+        print("\(isGostovan!) \(imePredmeta!)")
+//        sendEmail()
 
         // Do any additional setup after loading the view.
     }

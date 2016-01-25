@@ -82,11 +82,19 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
     }
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "dodajSejo") {
-            let svc = segue.destinationViewController as! DodajSejoViewController;
+        if (segue.identifier == "porocanje") {
+            let svc = segue.destinationViewController as! PorociloViewController
             
-          //TODO
+            let row = (self.tableView.indexPathForCell(sender as! UITableViewCell)?.row)!
             
+            if (self.tableView.indexPathForCell(sender as! UITableViewCell)?.section)! == 0 {
+                svc.isGostovan = false
+                svc.imePredmeta = seznamObiskanihPredmetov[row]
+            } else {
+                svc.isGostovan = true
+                svc.imePredmeta = seznamGostovanihPredmetov[row]
+            }
+    
         } 
     }
     
