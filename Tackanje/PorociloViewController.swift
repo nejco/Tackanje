@@ -15,8 +15,7 @@ class PorociloViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var textView: UITextView!
     var isGostovan:Bool?
     var imePredmeta:String?
-    var povezava:String?
-    var dodatneInformacije:String?
+//    var predmet:Predmet?
     
     @IBOutlet weak var imePredmetaLabel: UILabel!
     var seje = Array<String>()
@@ -28,7 +27,9 @@ class PorociloViewController: UIViewController, MFMailComposeViewControllerDeleg
         
 //        print("\(isGostovan!) \(imePredmeta!)")
         
-        imePredmetaLabel.text = imePredmeta!
+        imePredmetaLabel.text = "\(imePredmeta!)"
+
+//        imePredmetaLabel.text = "\(imePredmeta!)\n\(predmet?.povezava!)\n\(predmet?.dodatneInformacije!)\n"
         
         if (isGostovan! == false) {
             getObiskaneSeje(imePredmeta!)

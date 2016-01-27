@@ -15,6 +15,8 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
     var seznamGostovanihPredmetov = Array<String>()
     var seznamObiskanihPredmetov = Array<String>()
     
+    var seznamGostovanihP = Array<Predmet>()
+    var seznamObiskanihP = Array<Predmet>()
     
     var refreshControl:UIRefreshControl!
     
@@ -22,8 +24,11 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
     
     
     func refresh(sender:AnyObject){
-        tableView.reloadData()
-        self.refreshControl.endRefreshing()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+
+        })
 
     }
 
@@ -107,9 +112,12 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
             if (self.tableView.indexPathForCell(sender as! UITableViewCell)?.section)! == 0 {
                 svc.isGostovan = false
                 svc.imePredmeta = seznamObiskanihPredmetov[row]
+//                svc.predmet = seznamObiskanihP[row]
             } else {
                 svc.isGostovan = true
                 svc.imePredmeta = seznamGostovanihPredmetov[row]
+//                svc.predmet = seznamGostovanihP[row]
+
             }
     
         } 
@@ -135,6 +143,13 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
             for predmet in predmeti {
                 seznamObiskanihPredmetov.append("\(predmet.valueForKey("imePredmeta")!)")
 //                print("Predmet:\(predmet.valueForKey("imePredmeta")!)")
+                let p = Predmet()
+                p.imePredmeta = "\(predmet.valueForKey("imePredmeta")!)"
+                p.dodatneInformacije = "\(predmet.valueForKey("dodatneInformacije")!)"
+                p.povezava = "\(predmet.valueForKey("povezava")!)"
+                seznamObiskanihP.append(p)
+
+                
                 
             }
             
@@ -163,6 +178,11 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
             
             for predmet in predmeti {
                 seznamGostovanihPredmetov.append("\(predmet.valueForKey("imePredmeta")!)")
+                let p = Predmet()
+                p.imePredmeta = "\(predmet.valueForKey("imePredmeta")!)"
+                p.dodatneInformacije = "\(predmet.valueForKey("dodatneInformacije")!)"
+                p.povezava = "\(predmet.valueForKey("povezava")!)"
+                seznamObiskanihP.append(p)
             }
             
             
