@@ -14,6 +14,18 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
     
     var seznamGostovanihPredmetov = Array<String>()
     var seznamObiskanihPredmetov = Array<String>()
+    
+    
+    var refreshControl:UIRefreshControl!
+    
+    
+    
+    
+    func refresh(sender:AnyObject){
+        tableView.reloadData()
+        self.refreshControl.endRefreshing()
+
+    }
 
 
     @IBAction func logout(sender: AnyObject) {
@@ -33,6 +45,11 @@ class SeznamPredmetovViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         getObiskaniPredmeti()
         getGostovaniPredmeti()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
 
         // Do any additional setup after loading the view.
     }

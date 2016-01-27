@@ -14,10 +14,20 @@ class DrugiViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        saveName("Testni podateeeeek1")
-        saveGostovanPredmet("Nejc")
-        saveGostovanPredmet("Eva")
-        getSeje()
-        // Do any additional setup after loading the view.
+//        saveGostovanPredmet("Nejc")
+//        saveGostovanPredmet("Eva")
+//        getSeje()
+        
+//        dodajSejoPrijava("Nejc", tema: "Druga tema")
+        let o = Oseba()
+        o.ime = "Test ime"
+        o.priimek = "Test priimek"
+        o.email = "Test email"
+
+        
+//        dodajOsebo("Nejc", tema: "seja", oseba: o)
+
+//    getObiskaneSeje("Nejc")
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,9 +35,150 @@ class DrugiViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//    func dodajOsebo(imePredmeta:String, tema:String, oseba:Oseba) {
+//        let appDelegate =
+//            UIApplication.sharedApplication().delegate as! AppDelegate
+//        
+//        let managedContext = appDelegate.managedObjectContext
+//        
+//        let pred = NSPredicate(format: "(imePredmeta = %@)", "\(imePredmeta)")
+//        
+//        let fetchRequest = NSFetchRequest(entityName: "GostovaniPredmeti")
+//        fetchRequest.predicate = pred
+//        
+////        let obiskovalciEntity =  NSEntityDescription.entityForName("Obiskovalci",
+////            inManagedObjectContext:managedContext)
+////        
+////        
+////        let obiskovalci = NSManagedObject(entity: obiskovalciEntity!,
+////            insertIntoManagedObjectContext: managedContext)
+////        
+////        obiskovalci.setValue(oseba.email!, forKey: "email")
+////        obiskovalci.setValue(oseba.ime!, forKey: "ime")
+////        obiskovalci.setValue(oseba.priimek!, forKey: "priimek")
+////        obiskovalci.setValue(NSDate(), forKey: "datum")
+//        
+//        var match = NSManagedObject()
+//        
+//        //3
+//        do {
+//            let results = try managedContext.executeFetchRequest(fetchRequest)
+////            
+////            if results.count > 0 {
+////                match = results[0] as! NSManagedObject
+////                print(match)
+////            }
+//
+//            
+////            for seja in match.valueForKey("seje") as! NSSet {
+////                
+////                if ("\(seja.valueForKey("tema")!)" == tema) {
+////                    
+////                }
+////                
+////                print("Seje:\(seja.valueForKey("tema")!)")
+////                
+////            }
+//            
+//        } catch let error as NSError {
+//            print("Could not fetch \(error), \(error.userInfo)")
+//        }
+//    }
     
     
-    func getSeje() {
+    
+    
+    func getObiskaneSeje(imePredmeta:String) {
+        
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let pred = NSPredicate(format: "(imePredmeta = %@)", "\(imePredmeta)")
+        
+        let fetchRequest = NSFetchRequest(entityName: "ObiskovaniPredmeti")
+        fetchRequest.predicate = pred
+        
+        //3
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            let match = results[0] as! NSManagedObject
+            
+            for seja in match.valueForKey("seje") as! NSSet {
+                print("Seje:\(seja.valueForKey("tema")!)")
+                    
+            }
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+    }
+    
+    
+    func dodajSejoPrijava(imePredmeta:String, tema:String) {
+        
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let pred = NSPredicate(format: "(imePredmeta = %@)", "\(imePredmeta)")
+        
+        let fetchRequest = NSFetchRequest(entityName: "ObiskovaniPredmeti")
+        fetchRequest.predicate = pred
+        
+        
+        let obiskovaneSejeEntity =  NSEntityDescription.entityForName("ObiskovaneSeje",
+            inManagedObjectContext:managedContext)
+        
+        
+        let obiskovaneSeje = NSManagedObject(entity: obiskovaneSejeEntity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        obiskovaneSeje.setValue("\(tema)", forKey: "tema")
+        obiskovaneSeje.setValue(NSDate(), forKey: "datum")
+        
+        
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            let match = results[0] as! NSManagedObject
+            
+            match.addObject(obiskovaneSeje, forKey: "seje")
+            
+            print("iskan:\(imePredmeta) results:\(match.valueForKey("seje"))")
+            
+            try managedContext.save()
+            
+            
+            
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        
+        
+        
+        
+        //
+        //        let obiskovaneSejeEntity =  NSEntityDescription.entityForName("GostovaneSeje",
+        //            inManagedObjectContext:managedContext)
+        //
+        //        let obiskovaneSeje = NSManagedObject(entity: obiskovaneSejeEntity!,
+        //        insertIntoManagedObjectContext: managedContext)
+        //
+        //        obiskovaneSeje.setValue("\(tema)", forKey: "tema")
+        //        obiskovaneSeje.setValue(NSDate(), forKey: "datum")
+        
+        
+        
+    }
+    
+    
+    
+    
+    func getGostovaneSeje() {
         var predmeti = [NSManagedObject]()
         
         let appDelegate =

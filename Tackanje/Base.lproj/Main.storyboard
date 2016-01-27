@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WT7-X6-o0d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E33e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WT7-X6-o0d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -18,12 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vqT-ze-O5t">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vqT-ze-O5t">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="predmetCell" textLabel="oM4-3R-6He" rowHeight="38" style="IBUITableViewCellStyleDefault" id="EaR-SX-ehb">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="38"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EaR-SX-ehb" id="RV0-X3-uCJ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="37"/>
@@ -86,15 +86,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dodatne opcije predmeta (edit, export statistike...)" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD2-5q-d4p">
-                                <rect key="frame" x="29" y="176" width="234" height="123"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WQA-SK-ZUX">
+                                <rect key="frame" x="20" y="58" width="560" height="522"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oY-N9-lI2">
+                                <rect key="frame" x="501" y="20" width="79" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="79" id="l0x-ui-vZT"/>
+                                </constraints>
+                                <state key="normal" title="Export CSV"/>
+                                <connections>
+                                    <action selector="exportCSV:" destination="Dch-tG-7tj" eventType="touchUpInside" id="4YE-ld-Ch3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxM-4O-3Ft">
+                                <rect key="frame" x="20" y="24" width="473" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zqB-9x-gM8" firstAttribute="top" secondItem="WQA-SK-ZUX" secondAttribute="bottom" constant="20" id="2k3-IZ-taZ"/>
+                            <constraint firstItem="WQA-SK-ZUX" firstAttribute="top" secondItem="7oY-N9-lI2" secondAttribute="bottom" constant="8" id="DFg-gW-gVP"/>
+                            <constraint firstItem="7oY-N9-lI2" firstAttribute="top" secondItem="afu-MA-CMi" secondAttribute="bottom" id="Qb2-Z3-Kvi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WQA-SK-ZUX" secondAttribute="trailing" id="ROi-ib-4V6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="IxM-4O-3Ft" secondAttribute="leading" id="U7I-dM-mOm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7oY-N9-lI2" secondAttribute="trailing" id="VUT-t9-CQg"/>
+                            <constraint firstItem="WQA-SK-ZUX" firstAttribute="top" secondItem="afu-MA-CMi" secondAttribute="bottom" id="Xad-jl-yxh"/>
+                            <constraint firstItem="IxM-4O-3Ft" firstAttribute="baseline" secondItem="7oY-N9-lI2" secondAttribute="baseline" id="YR5-Z2-F5d"/>
+                            <constraint firstItem="7oY-N9-lI2" firstAttribute="leading" secondItem="IxM-4O-3Ft" secondAttribute="trailing" constant="8" id="aro-db-Ybz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="WQA-SK-ZUX" secondAttribute="leading" id="fRf-jJ-v1f"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Xad-jl-yxh"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="imePredmetaLabel" destination="IxM-4O-3Ft" id="FrC-Pt-eaE"/>
+                        <outlet property="textView" destination="WQA-SK-ZUX" id="81V-P3-LXl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouW-4a-Iea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

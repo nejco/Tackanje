@@ -11,6 +11,7 @@ import AVFoundation
 import RSBarcodes_Swift
 import CryptoSwift
 import AudioToolbox
+import CoreData
 
 
 
@@ -75,11 +76,12 @@ class PrijavaViewController: RSCodeReaderViewController {
         
         c.insertSublayer(sublayer, atIndex: 100)
         
-        2
+        
         self.view.layer.addSublayer(c)
         
+        var isScanned = false
+
         self.barcodesHandler = { barcodes in
-            var isScanned = false
 
             for barcode in barcodes {
                 if isScanned == false {
@@ -96,6 +98,8 @@ class PrijavaViewController: RSCodeReaderViewController {
                         if podatki[0] == "S" {
                             let imePredmeta = podatki[1]
                             let tema = podatki[2]
+                            self.dodajSejoPrijava(imePredmeta, tema: tema)
+                            print("dodajam sejo \(tema)")
   
                             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 
@@ -111,6 +115,7 @@ class PrijavaViewController: RSCodeReaderViewController {
                             predmet.imePredmeta = podatki[1]
                             predmet.povezava = podatki[2]
                             predmet.dodatneInformacije = podatki[3]
+                            self.saveObiskovanPredmet(predmet)
                             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
 
                             self.alert("Uspesna prijava",besedilo: "Ime predmeta:\(predmet.imePredmeta!) \nDodatne informacije:\(predmet.dodatneInformacije!)\nPovezava:\(predmet.povezava!)")
@@ -122,13 +127,18 @@ class PrijavaViewController: RSCodeReaderViewController {
                     } else {
                         self.alert("Napaka!", besedilo:"Skeniras lahko samo kodo aplikacije Tackanje!")
                     }
+                    
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.session.stopRunning()
+                        isScanned = false
+                    });
                 }
                 
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.session.stopRunning()
-                    isScanned = false
-                });
+
             }
+            
+            isScanned = true
         }
     }
     
@@ -154,16 +164,72 @@ class PrijavaViewController: RSCodeReaderViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func dodajSejoPrijava(imePredmeta:String, tema:String) {
+        
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let pred = NSPredicate(format: "(imePredmeta = %@)", "\(imePredmeta)")
+        
+        let fetchRequest = NSFetchRequest(entityName: "ObiskovaniPredmeti")
+        fetchRequest.predicate = pred
+        
+        
+        let obiskovaneSejeEntity =  NSEntityDescription.entityForName("ObiskovaneSeje",
+            inManagedObjectContext:managedContext)
+        
+        
+        let obiskovaneSeje = NSManagedObject(entity: obiskovaneSejeEntity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        obiskovaneSeje.setValue("\(tema)", forKey: "tema")
+        obiskovaneSeje.setValue(NSDate(), forKey: "datum")
+        
+        
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            
+            if results.count > 0 {
+                let match = results[0] as! NSManagedObject
+                match.addObject(obiskovaneSeje, forKey: "seje")
+                try managedContext.save()
+            } else {
+                alert("Napaka", besedilo: "Na predmet se moraš najprej prijaviti!")
+            }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
     }
-    */
+    
+    func saveObiskovanPredmet(predmet:Predmet) {
+        //1
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let obiskovaniPredmetiEntity =  NSEntityDescription.entityForName("ObiskovaniPredmeti",
+            inManagedObjectContext:managedContext)
+        
+        let obiskaniPredmeti = NSManagedObject(entity: obiskovaniPredmetiEntity!,
+            insertIntoManagedObjectContext: managedContext)
+        
+        //3
+        obiskaniPredmeti.setValue(predmet.imePredmeta!, forKey: "imePredmeta")
+        obiskaniPredmeti.setValue(predmet.povezava!, forKey: "povezava")
+        obiskaniPredmeti.setValue(predmet.dodatneInformacije!, forKey: "dodatneInformacije")
+        
+        //4
+        do {
+            try managedContext.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
 
-}
+} // end class
